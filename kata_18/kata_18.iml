@@ -1,10 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="RUBY_MODULE" version="4">
+  <component name="GemRequirementsHolder" version="3">
+    <requirement>
+      <requirement>
+        <dependency name="autotest" version="4.4.6" bound="EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="kata_18/Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="autotest-fsevent" version="0.2.5" bound="EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="kata_18/Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="autotest-growl" version="0.2.9" bound="EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="kata_18/Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="cucumber" version="0.10.0" bound="EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="kata_18/Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="growl" version="1.0.3" bound="EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="kata_18/Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="rspec" version="2.5.0" bound="EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="kata_18/Gemfile" />
+    </requirement>
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="jdk" jdkName="Ruby SDK 1.9.2-p136 [katas]" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] autotest (v4.4.6, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/autotest-4.4.6)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] ZenTest (v4.5.0, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/ZenTest-4.5.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] autotest-fsevent (v0.2.5, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/autotest-fsevent-0.2.5)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] autotest-growl (v0.2.9, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/autotest-growl-0.2.9)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] builder (v3.0.0, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/builder-3.0.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] bundler (v1.0.10, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/bundler-1.0.10)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] cucumber (v0.10.0, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/cucumber-0.10.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] diff-lcs (v1.1.2, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/diff-lcs-1.1.2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] gherkin (v2.3.3, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/gherkin-2.3.3)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] growl (v1.0.3, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/growl-1.0.3)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] json (v1.4.6, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/json-1.4.6)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] rspec (v2.5.0, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/rspec-2.5.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] rspec-core (v2.5.1, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/rspec-core-2.5.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] rspec-expectations (v2.5.0, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/rspec-expectations-2.5.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] rspec-mocks (v2.5.0, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/rspec-mocks-2.5.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] sys-uname (v0.8.5, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/sys-uname-0.8.5)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] term-ansicolor (v1.0.5, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/term-ansicolor-1.0.5)" level="application" />
   </component>
 </module>
 
