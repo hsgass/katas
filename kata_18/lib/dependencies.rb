@@ -15,12 +15,12 @@ class Dependencies
   end
 
   def get_thing(name)
-    dep = @things[name]
-    if (!dep)
-      dep = Thing.new name
-      @things[name] = dep
+    thing = @things[name]
+    if (!thing)
+      thing = Thing.new name
+      @things[name] = thing
     end
-    dep
+    thing
   end
 end
 
