@@ -1,29 +1,49 @@
-module Dependencies
+class Dependencies
 
-  $dependencies = Hash.new
+  attr_reader :things
 
-  class Dependency
-    attr_accessor :name
+  def initialize
+    @things = Hash.new
+  end
 
-    def initialize(dependency_set)
-      @dependency_names = Array.new
-      
-      dependency_set.each_char do |char|
-        if (!@name)
-          @name = char
-        else
-          add_dependency_name(char)
-        end
-      end
-      $dependencies[@name] = self
+  def new_thing(dependency_set)
+    thing = get_thing(dependency_set[0])
+
+    dependency_set[1..dependency_set.length].each_char do |char|
+      thing.add_dependency get_thing char
     end
+  end
 
-    def dependency_names()
-      @dependency_names.join
+  def get_thing(name)
+    dep = @things[name]
+    if (!dep)
+      dep = Thing.new name
+      @things[name] = dep
     end
+    dep
+  end
+end
 
-    def add_dependency_name(char)
-       @dependency_names.push(char) unless @dependency_names.index(char)
+
+class Thing
+
+  attr_reader :name
+
+  def initialize(name)
+    @things = Hash.new
+    @name = name
+  end
+
+  def dependency_names()
+    names = ''
+    @things.values.each do |thing|
+      names << thing.name
+      names << thing.dependency_names
     end
+    names
+  end
+
+  def add_dependency(thing)
+    @things[thing.name] = thing
   end
 end

@@ -61,5 +61,6 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] sys-uname (v0.8.5, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/sys-uname-0.8.5)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] term-ansicolor (v1.0.5, /Users/hsgass/.rvm/gems/ruby-1.9.2-p136@katas/gems/term-ansicolor-1.0.5)" level="application" />
   </component>
+  <component name="RModuleSettingsStorage" number="2" string0="$MODULE_DIR$/lib" string1="$MODULE_DIR$/spec" />
 </module>
 
