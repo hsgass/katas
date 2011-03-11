@@ -11,8 +11,7 @@
     <mkdir dir="target/junit-report"/>
     <taskdef name="cucumber" classname="cuke4duke.ant.CucumberTask" classpathref="compile.classpath"/>
     <cucumber
-            args="--verbose --require target/test-classes --require src/test/ruby --color --format pretty --format junit --out target/junit-report features"
-            objectFactory="pico">
+            args="--verbose --require target/test-classes --require src/test/ruby --color --format pretty" objectFactory="pico">
       <classpath>
         <pathelement location="target/test-classes"/>
       </classpath>
@@ -26,8 +25,6 @@
   <target name="-install-gems" depends="-define-paths" if="gems">
     <taskdef name="gem" classname="cuke4duke.ant.GemTask" classpathref="compile.classpath"/>
     <gem args="install cuke4duke --version 0.4.3"/>
-    <gem args="install akephalos --version 0.2.5"/>
-    <gem args="install evergreen --version 0.4.0"/>
   </target>
 
   <target name="-define-paths" depends="-download-jars">

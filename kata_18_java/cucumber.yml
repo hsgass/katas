@@ -1,0 +1,4 @@
+default: --format pretty -c
+autotest: --format pretty -c
+autotest-all: --format pretty -c
+
