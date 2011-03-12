@@ -7,6 +7,8 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.junit.Assert.*;
+
 public class ThingTest {
 
     private Map<String, Thing> thingMap;
@@ -19,37 +21,37 @@ public class ThingTest {
     @Test
     public void should_initialize_with_correct_name() {
         Thing t = Thing.get("AB", thingMap);
-        Assert.assertEquals("A", t.getName());
+        assertEquals("A", t.getName());
     }
 
     @Test
     public void should_be_in_thingMap_after_initialization() {
         Thing t = Thing.get("AB", thingMap);
-        Assert.assertTrue(thingMap.containsValue(t));
+        assertTrue(thingMap.containsValue(t));
     }
 
     @Test
     public void dependency_should_be_in_thingMap_after_initialization() {
         Thing.get("AB", thingMap);
-        Assert.assertNotNull(thingMap.get("B"));
+        assertNotNull(thingMap.get("B"));
     }
 
     @Test
     public void should_report_single_dependency() {
         Thing t = Thing.get("AB", thingMap);
-        Assert.assertEquals("B", t.getDependencies());
+        assertEquals("B", t.getDependencies());
     }
 
     @Test
     public void should_report_five_dependencies() {
         Thing t = Thing.get("ABCDEF", thingMap);
-        Assert.assertEquals("BCDEF", t.getDependencies());
+        assertEquals("BCDEF", t.getDependencies());
     }
 
     @Test
     public void should_not_report_duplicate_dependencies() {
         Thing t = Thing.get("ABBBB", thingMap);
-        Assert.assertEquals("B", t.getDependencies());
+        assertEquals("B", t.getDependencies());
     }
 
     @Test
@@ -57,7 +59,7 @@ public class ThingTest {
         try {
             Thing.get("A", thingMap);
         } catch (Exception e) {
-            Assert.fail(e.getMessage());
+            fail(e.getMessage());
         }
     }
 
@@ -65,14 +67,14 @@ public class ThingTest {
     public void should_report_dependencies_added_after_initialization() {
         Thing t = Thing.get("AB", thingMap);
         Thing.get("BC", thingMap);
-        Assert.assertEquals("BC", t.getDependencies());
+        assertEquals("BC", t.getDependencies());
     }
 
     @Test
     public void should_report_dependencies_added_to_dependencies_added_after_initialization() {
         Thing t = Thing.get("AB", thingMap);
-        Thing.get("C", thingMap);
+        Thing.get("BC", thingMap);
         Thing.get("CDEF", thingMap);
-        Assert.assertEquals("BCDEF", t.getDependencies());
+        assertEquals("BCDEF", t.getDependencies());
     }
 }
