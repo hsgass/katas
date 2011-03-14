@@ -34,10 +34,4 @@ require 'spec_helper.rb'
       thing_a.add_dependency thing_b
       thing_a.dependency_names.should eql 'BC'
     end
-
-    it "should make B equal B" do
-      b = "B"
-      another_b = "B"
-      b.should equal another_b
-    end
   end

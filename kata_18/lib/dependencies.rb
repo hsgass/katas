@@ -30,7 +30,9 @@ end
 
 class Thing
   require 'set'
+  require 'logger'
   attr_reader :name
+  attr_reader :children
 
   def initialize(name)
     @children = SortedSet.new
@@ -40,22 +42,26 @@ class Thing
 
   def dependency_names()
     names = ''
-    @children.each do |thing|
-      names << thing.name
+    @children.each do |c|
+      names << c.name
+      c.children.each { |cc| names << cc.name }
     end
     names
   end
 
   def add_dependency(thing)
-    @children.add thing
-
+    @children << thing
   end
 
-  def add_parent(thing)
-    @parents.add(thing)
+  def eql?(other)
+    name.eql? other.name
   end
 
   def <=>(other)
     name <=> other.name
+  end
+
+  def hash
+    @name.hash
   end
 end
