@@ -34,6 +34,7 @@ class Thing
 
   def initialize(name)
     @children = SortedSet.new
+    @parents = SortedSet.new
     @name = name
   end
 
@@ -47,6 +48,11 @@ class Thing
 
   def add_dependency(thing)
     @children.add thing
+
+  end
+
+  def add_parent(thing)
+    @parents.add(thing)
   end
 
   def <=>(other)
