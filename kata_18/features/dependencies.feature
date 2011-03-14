@@ -21,7 +21,7 @@ Feature: Calculate transitive dependencies
         | dependency | results |
         | A | BCEFGH |
         | B | CEFGH |
-        | C | G |
+        | C | EFGH |
         | D | ABCEFGH |
         | E | FH |
         | F | H |
