@@ -26,7 +26,6 @@ end
 
 
 class Item
-  require 'logger'
   attr_accessor :name, :price, :special_qty, :special_price
 
   def initialize(name, price, special_qty, special_price)
@@ -34,19 +33,14 @@ class Item
     @price = price
     @special_qty = special_qty
     @special_price = special_price
-    @log = Logger.new STDOUT
   end
 
   def price(qty)
-    p = 0
-    if @special_qty && @special_qty > 0
-      if qty.fdiv(@special_qty) >= 1
+      if @special_qty && qty.fdiv(@special_qty) >= 1
         p = (qty / @special_qty) * @special_price
-        p += (qty % @special_qty) * @price
+        p + (qty % @special_qty) * @price
       else
-        p += qty * @price
+        qty * @price
       end
-    end
-    p
   end
 end
