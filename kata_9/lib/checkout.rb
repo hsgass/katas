@@ -20,8 +20,8 @@ class Checkout
 
   def total
     total = 0
-    @items.each do |name, count|
-      total += @pricelist[name].ext_price(count)
+    @items.each do |name, qty|
+      total += @pricelist[name].ext_price(qty)
     end
     total
   end
@@ -32,9 +32,9 @@ class Item
   attr_accessor :price, :special_qty, :special_price
 
   def initialize(price, special_qty, special_price)
-    @price = price.to_i || 0
-    @special_qty = special_qty.to_i || 0
-    @special_price = special_price.to_i || 0
+    @price = price.to_i
+    @special_qty = special_qty.to_i
+    @special_price = special_price.to_i
   end
 
   def ext_price(qty)

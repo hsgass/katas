@@ -1,8 +1,4 @@
 require 'spec_helper.rb'
-require 'yaml'
-require 'logger'
-
-log = Logger.new STDOUT
 
 pricelist = {
   'A' => Item.new(50, 3, 130),
@@ -10,7 +6,6 @@ pricelist = {
   'C' => Item.new(20, nil, nil),
   'D' => Item.new(15, nil, nil)
 }
-
 
 describe Checkout do
 

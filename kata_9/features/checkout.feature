@@ -1,8 +1,8 @@
 Feature: Supermarket checkout
 
-    As a cashier
-    I want to get accurate pricing
-    So my cash drawer balances
+    As a supermarket
+    I want the system to accurately scan and calculate prices
+    So that profit
 
     Scenario Outline: checkouts
         Given the following prices are defined:
