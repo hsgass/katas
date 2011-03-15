@@ -1,12 +1,17 @@
 Given /^the following prices are defined:$/ do |table|
-  # table is a Cucumber::Ast::Table
-  pending # express the regexp above with the code you wish you had
+  @pricelist = {}
+  table.hashes.each do |h|
+    @pricelist[h[:item]] = Item.new(h[:price],
+                                    h[:special_qty],
+                                    h[:special_price])
+  end
 end
 
-When /^I test the total for "([^"]*)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+When /^I scan "([^"]*)"$/ do |items|
+  @checkout = Checkout.new(@pricelist)
+  @checkout.scan items
 end
 
-Then /^I should get "([^"]*)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then /^The total should be "([^"]*)"$/ do |total|
+  @checkout.total.to_s.should == total
 end

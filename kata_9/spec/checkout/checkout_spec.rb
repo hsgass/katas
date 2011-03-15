@@ -5,10 +5,10 @@ require 'logger'
 log = Logger.new STDOUT
 
 pricelist = {
-  'A' => Item.new('A', 50, 3, 130),
-  'B' => Item.new('B', 30, 2, 45),
-  'C' => Item.new('C', 20, nil, nil),
-  'D' => Item.new('D', 15, nil, nil)
+  'A' => Item.new(50, 3, 130),
+  'B' => Item.new(30, 2, 45),
+  'C' => Item.new(20, nil, nil),
+  'D' => Item.new(15, nil, nil)
 }
 
 
@@ -36,22 +36,33 @@ describe Checkout do
     checkout.scan 'AAA'
     checkout.total.should == 130
   end
+
+  it "should handle goofy order of multiple items" do
+    checkout = Checkout.new pricelist
+    checkout.scan 'ABCDADCBA'
+    checkout.total.should == 245
+  end
 end
 
 
 describe Item do
   it "should correctly calculate total for normal quantity" do
-    item = Item.new('A', 50, 3, 130)
-    item.price(2).should == 100
+    item = Item.new(50, 3, 130)
+    item.ext_price(2).should == 100
   end
 
   it "should correctly calculate total for special quantity" do
-    item = Item.new('A', 50, 3, 130)
-    item.price(3).should == 130
+    item = Item.new(50, 3, 130)
+    item.ext_price(3).should == 130
   end
 
   it "should correctly calculate total for more than special quantity" do
-    item = Item.new('A', 50, 3, 130)
-    item.price(4).should == 180
+    item = Item.new(50, 3, 130)
+    item.ext_price(4).should == 180
+  end
+
+  it "should convert strings to numbers" do
+    item = Item.new('50', '3', '130')
+    item.ext_price(4).should == 180
   end
 end
