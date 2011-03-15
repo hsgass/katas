@@ -6,12 +6,9 @@ class Dependencies
 
   def add(dependency_string)
     deps = get_internal dependency_string[0]
-    length = dependency_string.length
-    if length > 1
-      [1..length].each do |i|
-        add(dependency_string[i])
-      end
-      dependency_string[1..length].each_char do |c|
+    if dependency_string.length > 1
+      add dependency_string[1..-1]
+      dependency_string[1..-1].each_char do |c|
         deps << c
       end
     end
@@ -34,6 +31,5 @@ class Dependencies
     end
     deps
   end
-
 end
 

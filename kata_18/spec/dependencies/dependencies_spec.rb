@@ -4,15 +4,13 @@ describe Dependencies do
   it "should create a dependency" do
     dependencies = Dependencies.new
     dependencies.add 'AB'
-    deps = dependencies.get_deps 'A'
-    deps.should == 'B'
+    dependencies.get_deps('A').should == 'B'
   end
 
   it "should create 2 dependencies" do
     dependencies = Dependencies.new
     dependencies.add 'ABC'
-    deps = dependencies.get_deps 'A'
-    deps.should == 'BC'
+    dependencies.get_deps('A').should == 'BC'
   end
 
   it "should create 5 dependencies" do
@@ -20,16 +18,14 @@ describe Dependencies do
     dependencies.add 'ABC'
     dependencies.add 'CDE'
     dependencies.add 'EF'
-    deps = dependencies.get_deps 'A'
-    deps.should == 'BCDEF'
+    dependencies.get_deps('A').should == 'BCDEF'
   end
 
   it "should add dependencies to dependencies" do
     dependencies = Dependencies.new
     dependencies.add 'AB'
     dependencies.add 'BC'
-    deps = dependencies.get_deps 'A'
-    deps.should == 'BC'
+    dependencies.get_deps('A').should == 'BC'
   end
 
   it "should pick up backwards dependencies" do
@@ -37,8 +33,7 @@ describe Dependencies do
     dependencies.add 'BC'
     dependencies.add 'CD'
     dependencies.add 'AB'
-    deps = dependencies.get_deps 'A'
-    deps.should == 'BCD'
+    dependencies.get_deps('A').should == 'BCD'
   end
 
   it "should handle indirect dependencies" do
@@ -46,8 +41,7 @@ describe Dependencies do
     dependencies.add 'BCE'
     dependencies.add 'CG'
     dependencies.add 'EF'
-    deps = dependencies.get_deps 'C'
-    deps.should == 'EFG'
+    dependencies.get_deps('C').should == 'EFG'
   end
 
   it "should handle multiple dependencies" do
