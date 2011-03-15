@@ -40,4 +40,20 @@ describe Dependencies do
     deps = dependencies.get_deps 'A'
     deps.should == 'BCD'
   end
+
+  it "should handle indirect dependencies" do
+    dependencies = Dependencies.new
+    dependencies.add 'BCE'
+    dependencies.add 'CG'
+    dependencies.add 'EF'
+    deps = dependencies.get_deps 'C'
+    deps.should == 'EFG'
+  end
+
+  it "should handle multiple dependencies" do
+    dependencies = Dependencies.new
+    dependencies.add 'BCE'
+    dependencies.get_deps('B').should == 'CE'
+    dependencies.get_deps('C').should == 'E'
+  end
 end
