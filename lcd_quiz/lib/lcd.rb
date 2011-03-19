@@ -1,7 +1,5 @@
   class Lcd
 
-    attr_reader :digits
-
     def initialize(digit_string, size = 2)
       @digits = []
       digit_string.each_char do |c|
