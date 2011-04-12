@@ -1,0 +1,9 @@
+require "autotest/growl"
+require "autotest/fsevent"
+require "autotest/restart"
+#require "redgreen/autotest"
+
+Autotest.add_hook :initialize do |autotest|
+  %w{.git .idea .DS_Store ._* vendor}.each { |exception| autotest.add_exception(exception) }
+  false
+end

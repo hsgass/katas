@@ -1,0 +1,8 @@
+source 'http://rubygems.org'
+
+gem 'cucumber', '0.10.0'
+gem 'rspec', '2.5.0'
+gem 'autotest', '4.4.6'
+gem 'growl', '1.0.3'
+gem 'autotest-growl', '0.2.9'
+gem 'autotest-fsevent', '0.2.5'
