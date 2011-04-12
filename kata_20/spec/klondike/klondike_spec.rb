@@ -40,7 +40,18 @@ module Klondike
       f = Klondike::Card.new '1', Klondike::CLUB
       n = Klondike::Card.new '2', Klondike::SPADE
       (n.next_foundation?(f)).should be_false
-     end
+    end
+
+    it "should not be visible by default" do
+      c = Klondike::Card.new '5', Klondike::DIAMOND
+      c.visible?.should be_false
+    end
+
+    it "should be visible when flipped" do
+      c = Klondike::Card.new '5', Klondike::DIAMOND
+      c.flip
+      c.visible?.should be_true
+    end
   end
 
   describe Suit do
@@ -55,6 +66,7 @@ module Klondike
 
     it "should tell if another suit is the other color" do
       (Klondike::SPADE.opposite?(Klondike::HEART)).should be_true
+      (Klondike::SPADE.opposite?(Klondike::SPADE)).should be_false
     end
   end
 end
