@@ -2,6 +2,9 @@ import java.io.File;
 import java.lang.reflect.Constructor;
 import java.util.Scanner;
 
+/**
+ * http://codekata.pragprog.com/2007/01/kata_four_data_.html
+ */
 public class Kata4 {
 
     public static void main(String[] args) {
