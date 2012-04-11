@@ -1,5 +1,3 @@
-package com.gass.kata18;
-
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;

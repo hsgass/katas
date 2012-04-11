@@ -1,5 +1,3 @@
-package com.gass.kata18;
-
 import java.util.HashMap;
 import java.util.Map;
 

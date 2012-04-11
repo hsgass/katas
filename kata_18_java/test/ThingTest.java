@@ -1,5 +1,3 @@
-package com.gass.kata18;
-
 import org.junit.Before;
 import org.junit.Test;
 
