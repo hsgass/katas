@@ -1,77 +1,36 @@
-import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class Thing implements Comparable<Thing> {
 
     private String name;
-    private Set<Thing> parents = new TreeSet<Thing>();
-    private Set<Thing> children = new TreeSet<Thing>();
+    private Set<Thing> dependencies = new TreeSet<Thing>();
 
 
-    private Thing(String name) {
+    public Thing(String name) {
         this.name = name;
     }
 
 
-    public static Thing get(String dependencyString, Map<String, Thing> thingMap) {
-        Thing thing = null;
-        if (dependencyString != null) {
-            String name = findName(dependencyString);
-            thing = thingMap.get(name);
-            if (thing == null) {
-                thing = new Thing(name);
-                thingMap.put(name, thing);
-            }
-
-            if (dependencyString.length() > 1) {
-                for (int i = 1; i < dependencyString.length(); i++) {
-                    Thing newThing = Thing.get(dependencyString.substring(i), thingMap);
-                    thing.addDependency(newThing);
-                }
-            }
-        }
-        return thing;
-    }
-
-
-    public String getName() {
-        return name;
+    public void addDependency(Thing thing) {
+        dependencies.add(thing);
     }
 
 
     public String getDependencyString() {
-        String deps = "";
-        for (Thing dep : children) {
-            deps += dep;
+        return getDependencies().toString().replaceAll("\\W", "");
+    }
+
+
+    public Set<Thing> getDependencies() {
+        TreeSet<Thing> deps = new TreeSet<Thing>();
+
+        for (Thing dep : dependencies) {
+            deps.add(dep);
+            deps.addAll(dep.getDependencies());
         }
+
         return deps;
-    }
-
-
-    public void addDependency(Thing thing) {
-        if (thing != null && !children.contains(thing)) {
-            children.add(thing);
-            children.addAll(thing.getChildren());
-            thing.addParent(this);
-            for (Thing p : parents) {
-                p.addDependency(thing);
-            }
-        }
-    }
-
-
-    public Set<Thing> getChildren() {
-        return children;
-    }
-
-    public void addParent(Thing thing) {
-        parents.add(thing);
-    }
-
-
-    private static String findName(String dependencyString) {
-        return dependencyString.length() <= 1 ? dependencyString : dependencyString.substring(0, 1);
     }
 
 
@@ -87,9 +46,7 @@ public class Thing implements Comparable<Thing> {
 
         Thing thing = (Thing) o;
 
-        if (name != null ? !name.equals(thing.name) : thing.name != null) return false;
-
-        return true;
+        return !(name != null ? !name.equals(thing.name) : thing.name != null);
     }
 
 
